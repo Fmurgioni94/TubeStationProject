@@ -16,7 +16,6 @@ STATIONS_MAX = 272
 stations_matrix = np.zeros((STATIONS_MAX, STATIONS_MAX))
 
 
-
 def main():
     print(f'Welcome to London Underground Journey Planner!')
     read_csv("underground_data.csv")
@@ -37,7 +36,7 @@ def read_csv(filename):
             if row[2] == '' and row[3] == '':
                 station = row[1].strip()
                 stations_set.add(station)
-                if station not in station_dict:
+                if station not in station_dict.values():
                     station_dict[index] = station
                     index += 1
                 continue
@@ -59,17 +58,41 @@ def read_csv(filename):
             for j in range(len(stations_matrix[0])):
                 if stations_matrix[i][j] != 0:
                     edges.add((i, j, stations_matrix[i][j]))
-                    #edges.add((j, i, stations_matrix[i][j]))
-        graph1 = AdjacencyListGraph(len(stations_set), True, True)
+                    # edges.add((j, i, stations_matrix[i][j]))
+        graph1 = AdjacencyListGraph(len(stations_set), False, True)
 
         for edge in edges:
             graph1.insert_edge(edge[0], edge[1], edge[2])
-        # d, pi = dijkstra(graph1, 1)
-        # for i in range(len(stations_set)):
+        d, pi = dijkstra(graph1, 0)
+        for i in range(len(stations_set)):
+            print(station_dict[i] + ": d = " + str(d[i]) + ", pi = " + ("None" if pi[i] is None else station_dict[pi[i]]))
+        print()
+        print(d, pi)
+        print(sorted(stations_set))
+        print(sorted(station_dict.values()))
+        print(len(stations_set), len(station_dict))
+        print(station_dict[269], station_dict[11])
+        # m = [
+        #     [0, 3, 0, 1, 0, 0], [0, 0, 2, 4, 0, 2], [0, 0, 0, 0, 5, 0], [0, 0, 0, 0, 8, 0], [0, 0, 0, 0, 0, 0],
+        #     [0, 0, 0, 0, 0, 0]
+        # ]
+        # edges = set()
+        # vertices = ['A', 'B', 'C', 'D', 'E', 'F']
+        # for i in range(len(m)):
+        #     for j in range(len(m[0])):
+        #         if m[i][j] != 0:
+        #             edges.add((i, j, m[i][j]))
+        #             # edges.add((j, i, m[i][j]))
+        # graph1 = AdjacencyListGraph(len(stations_set), False, True)
+        # for edge in edges:
+        #     graph1.insert_edge(edge[0], edge[1], edge[2])
+        # print(edges)
+        # d, pi = dijkstra(graph1, 0)
+        # for i in range(len(m)):
         #     print(vertices[i] + ": d = " + str(d[i]) + ", pi = " + ("None" if pi[i] is None else vertices[pi[i]]))
         # print()
-        print(d, pi)
-        print(max(edges[0]))
+        # print(d, pi)
+
 
 # Press the green button in the gutter to run the script.
 if __name__ == '__main__':
