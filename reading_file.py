@@ -32,6 +32,7 @@
 
 import csv
 
+
 class File:
     def __init__(self, vertices=None, edges=None, list_of_stations=None):
         """
@@ -47,10 +48,14 @@ class File:
             vertices = dict()
         if list_of_stations is None:
             list_of_stations = list()
-        self.vertices = vertices
-        self.edges = edges
-        self.list_of_stations = list_of_stations
-        self.file_name = 'LondonUnderground.csv'
+        self.__vertices = vertices
+        self.__edges = edges
+        self.__list_of_stations = list_of_stations
+        self.__file_name = 'LondonUnderground.csv'
+
+    @property
+    def list_of_stations(self):
+        return self.__list_of_stations
 
     def read_file(self):
         """
@@ -60,17 +65,17 @@ class File:
             Tuple[dict, dict]: A tuple containing two dictionaries - edges and vertices.
         """
         # Open the CSV file for reading
-        with open(self.file_name, 'r') as f:
+        with open(self.__file_name, 'r') as f:
             # Create a reader object
             reader = csv.reader(f)
             i = 0  # Initialize i
             for row in reader:
-                if row[1].strip() not in self.vertices:
-                    self.vertices[row[1].strip()] = i
-                    self.list_of_stations.append(row[1].strip())
+                if row[1].strip() not in self.__vertices:
+                    self.__vertices[row[1].strip()] = i
+                    self.__list_of_stations.append(row[1].strip())
                     i += 1
                 if len(row) == 4 and row[2] != "":
-                    if (row[2].strip(), row[1].strip()) not in self.edges and (
-                            row[1].strip(), row[2].strip()) not in self.edges:
-                        self.edges[(row[1].strip(), row[2].strip())] = int(row[3].strip())
-        return self.vertices, self.edges
+                    if (row[2].strip(), row[1].strip()) not in self.__edges and (
+                            row[1].strip(), row[2].strip()) not in self.__edges:
+                        self.__edges[(row[1].strip(), row[2].strip())] = int(row[3].strip())
+        return self.__vertices, self.__edges
