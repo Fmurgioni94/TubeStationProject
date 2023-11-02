@@ -30,6 +30,7 @@
 #                                                                       #
 #########################################################################
 
+
 import csv
 
 
@@ -64,18 +65,28 @@ class File:
         Returns:
             Tuple[dict, dict]: A tuple containing two dictionaries - edges and vertices.
         """
-        # Open the CSV file for reading
-        with open(self.__file_name, 'r') as f:
-            # Create a reader object
-            reader = csv.reader(f)
-            i = 0  # Initialize i
-            for row in reader:
-                if row[1].strip() not in self.__vertices:
-                    self.__vertices[row[1].strip()] = i
-                    self.__list_of_stations.append(row[1].strip())
-                    i += 1
-                if len(row) == 4 and row[2] != "":
-                    if (row[2].strip(), row[1].strip()) not in self.__edges and (
-                            row[1].strip(), row[2].strip()) not in self.__edges:
-                        self.__edges[(row[1].strip(), row[2].strip())] = int(row[3].strip())
+        try:
+            # Open the CSV file for reading
+            with open(self.__file_name, 'r') as f:
+                # Create a reader object
+                reader = csv.reader(f)
+                i = 0  # Initialize i
+                for row in reader:
+                    if row:
+                        if row[1].strip() not in self.__vertices:
+                            self.__vertices[row[1].strip()] = i
+                            self.__list_of_stations.append(row[1].strip())
+                            i += 1
+                        if len(row) == 4 and row[2] != "":
+                            if (row[2].strip(), row[1].strip()) not in self.__edges and (
+                                    row[1].strip(), row[2].strip()) not in self.__edges:
+                                self.__edges[(row[1].strip(), row[2].strip())] = int(row[3].strip())
+        except FileNotFoundError:
+            raise FileNotFoundError("File not found.")
+        except csv.Error as e:
+            raise ValueError(f"CSV error: {str(e)}")
+
+        if not self.__vertices or not self.__edges:
+            raise ValueError("The file is empty or in the wrong structure.")
+
         return self.__vertices, self.__edges
