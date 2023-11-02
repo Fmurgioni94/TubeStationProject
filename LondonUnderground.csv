@@ -36,7 +36,7 @@ Bakerloo,Queen's Park,Kilburn Park,2
 Bakerloo,Kilburn Park,Maida Vale,2
 Bakerloo,Maida Vale,Warwick Avenue,1
 Bakerloo,Warwick Avenue,Paddington,2
-Bakerloo,Paddington,Edgware Road,2
+Bakerloo,Paddington,Edgware Road,3
 Bakerloo,Edgware Road,Marylebone,1
 Bakerloo,Marylebone,Baker Street,2
 Bakerloo,Baker Street,Regent's Park,2
@@ -185,7 +185,7 @@ Circle,Paddington,Bayswater,2
 Circle,Bayswater,Notting Hill Gate,2
 Circle,Notting Hill Gate,High Street Kensington,2
 Circle,High Street Kensington,Gloucester Road,3
-Circle,Gloucester Road,South Kensington,3
+Circle,Gloucester Road,South Kensington,2
 Circle,South Kensington,Sloane Square,2
 Circle,Sloane Square,Victoria,2
 Circle,Victoria,St. James's Park,2
@@ -305,7 +305,7 @@ District,Westminster,St. James's Park,2
 District,St. James's Park,Victoria,2
 District,Victoria,Sloane Square,2
 District,Sloane Square,South Kensington,2
-District,South Kensington,Gloucester Road,3
+District,South Kensington,Gloucester Road,2
 District,Gloucester Road,Earl's Court,2
 District,Earl's Court,Kensington (Olympia),3
 District,Earl's Court,High Street Kensington,5
@@ -509,8 +509,8 @@ Metropolitan,Finchley Road,Baker Street,5
 Metropolitan,Baker Street,Great Portland Street,2
 Metropolitan,Great Portland Street,Euston Square,2
 Metropolitan,Euston Square,King's Cross St. Pancras,2
-Metropolitan,King's Cross St. Pancras,Farringdon,2
-Metropolitan,Farringdon,Barbican,4
+Metropolitan,King's Cross St. Pancras,Farringdon,4
+Metropolitan,Farringdon,Barbican,1
 Metropolitan,Barbican,Moorgate,2
 Metropolitan,Moorgate,Liverpool Street,2
 Metropolitan,Liverpool Street,Aldgate,3
@@ -718,7 +718,7 @@ Piccadilly,South Harrow,Rayners Lane,5
 Piccadilly,Rayners Lane,Eastcote,2
 Piccadilly,Eastcote,Ruislip Manor,2
 Piccadilly,Ruislip Manor,Ruislip,2
-Piccadilly,Ruislip,Ickenham,4
+Piccadilly,Ruislip,Ickenham,2
 Piccadilly,Ickenham,Hillingdon,2
 Piccadilly,Hillingdon,Uxbridge,4
 Victoria,Walthamstow Central,,
@@ -744,7 +744,7 @@ Victoria,Seven Sisters,Finsbury Park,5
 Victoria,Finsbury Park,Highbury & Islington,2
 Victoria,Highbury & Islington,King's Cross St. Pancras,3
 Victoria,King's Cross St. Pancras,Euston,2
-Victoria,Euston,Warren Street,2
+Victoria,Euston,Warren Street,1
 Victoria,Warren Street,Oxford Circus,2
 Victoria,Oxford Circus,Green Park,2
 Victoria,Green Park,Victoria,2
