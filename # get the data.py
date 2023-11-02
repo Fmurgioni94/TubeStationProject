@@ -35,6 +35,8 @@ with open('LondonUnderground.csv', 'r') as f:
     starting_index = list_of_stops.index(starting_station)
     arriving_index = list_of_stops.index(arriving_station)
 
+
+    # thi part needs an update that consider the edges are now dictionary
     for edge in list_of_edges:
         graph1.insert_edge(list_of_stops.index(edge[0]), list_of_stops.index(edge[1]), edge[2])
     d, pi = dijkstra(graph1, list_of_stops.index(starting_station))
@@ -46,5 +48,10 @@ with open('LondonUnderground.csv', 'r') as f:
     #
     # for i in range(len(list_of_stops)):
     #     print(i, list_of_stops[i])
+    path = []
+    while pi[arriving_index] is not None:
+        time = d[arriving_index]
+        next_station = pi[arriving_index]
+        path.append(())
 
 
