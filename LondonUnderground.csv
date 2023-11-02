@@ -18,7 +18,7 @@ Bakerloo,Baker Street,,
 Bakerloo,Regent's Park,,
 Bakerloo,Oxford Circus,,
 Bakerloo,Piccadilly Circus,,
-Bakerloo,Charing Cross ,,
+Bakerloo,Charing Cross,,
 Bakerloo,Embankment,,
 Bakerloo,Waterloo,,
 Bakerloo,Lambeth North,,
@@ -47,14 +47,14 @@ Bakerloo,Charing Cross ,Embankment,1
 Bakerloo,Embankment,Waterloo,2
 Bakerloo,Waterloo,Lambeth North,2
 Bakerloo,Lambeth North,Elephant & Castle,3
-Central,Epping ,,
+Central,Epping,,
 Central,Theydon Bois,,
 Central,Debden,,
-Central,Loughton ,,
+Central,Loughton,,
 Central,Buckhurst Hill,,
 Central,Woodford,,
 Central,South Woodford,,
-Central,Snaresbrook ,,
+Central,Snaresbrook,,
 Central,Roding Valley,,
 Central,Chigwell,,
 Central,Grange Hill,,
@@ -89,21 +89,21 @@ Central,East Acton,,
 Central,North Acton,,
 Central,West Acton,,
 Central,Ealing Broadway,,
-Central,Hanger Lane ,,
+Central,Hanger Lane,,
 Central,Perivale,,
 Central,Greenford,,
-Central,Northolt ,,
+Central,Northolt,,
 Central,South Ruislip,,
 Central,Ruislip Gardens,,
 Central,West Ruislip,,
-Central,Epping ,Theydon Bois,3
+Central,Epping,Theydon Bois,3
 Central,Theydon Bois,Debden,3
-Central,Debden,Loughton ,2
-Central,Loughton ,Buckhurst Hill,3
+Central,Debden,Loughton,2
+Central,Loughton,Buckhurst Hill,3
 Central,Buckhurst Hill,Woodford,2
 Central,Woodford,South Woodford,3
-Central,South Woodford,Snaresbrook ,2
-Central,Snaresbrook ,Leytonstone,2
+Central,South Woodford,Snaresbrook,2
+Central,Snaresbrook,Leytonstone,2
 Central,Roding Valley,Woodford,4
 Central,Roding Valley,Chigwell,3
 Central,Chigwell,Grange Hill,2
@@ -136,16 +136,16 @@ Central,Holland Park,Shepherd's Bush,2
 Central,Shepherd's Bush,White City,3
 Central,White City,East Acton,3
 Central,East Acton,North Acton,2
-Central,North Acton,Hanger Lane ,3
+Central,North Acton,Hanger Lane,3
 Central,North Acton,West Acton,2
 Central,West Acton,Ealing Broadway,3
-Central,Hanger Lane ,Perivale,3
+Central,Hanger Lane,Perivale,3
 Central,Perivale,Greenford,2
-Central,Greenford,Northolt ,2
-Central,Northolt ,South Ruislip,3
+Central,Greenford,Northolt,2
+Central,Northolt,South Ruislip,3
 Central,South Ruislip,Ruislip Gardens,2
 Central,Ruislip Gardens,West Ruislip,2
-Circle,Edgware Road ,,
+Circle,Edgware Road,,
 Circle,Paddington,,
 Circle,Bayswater,,
 Circle,Notting Hill Gate,,
@@ -173,14 +173,14 @@ Circle,Euston Square,,
 Circle,Great Portland Street,,
 Circle,Baker Street,,
 Circle,Royal Oak ,,
-Circle,Westbourne Park ,,
-Circle,Ladbroke Grove ,,
-Circle,Latimer Road ,,
-Circle,Wood Lane ,,
-Circle,Shepherd's Bush Market ,,
-Circle,Goldhawk Road ,,
-Circle,Hammersmith ,,
-Circle,Edgware Road ,Paddington,3
+Circle,Westbourne Park,,
+Circle,Ladbroke Grove,,
+Circle,Latimer Road,,
+Circle,Wood Lane,,
+Circle,Shepherd's Bush Market,,
+Circle,Goldhawk Road,,
+Circle,Hammersmith,,
+Circle,Edgware Road,Paddington,3
 Circle,Paddington,Bayswater,2
 Circle,Bayswater,Notting Hill Gate,2
 Circle,Notting Hill Gate,High Street Kensington,2
@@ -206,15 +206,15 @@ Circle,Farringdon,King's Cross St. Pancras,4
 Circle,King's Cross St. Pancras,Euston Square,2
 Circle,Euston Square,Great Portland Street,2
 Circle,Great Portland Street,Baker Street,2
-Circle,Baker Street,Edgware Road ,3
-,Paddington,Royal Oak ,2
-Circle,Royal Oak ,Westbourne Park ,2
-Circle,Westbourne Park ,Ladbroke Grove ,2
-Circle,Ladbroke Grove ,Latimer Road ,2
-Circle,Latimer Road ,Wood Lane ,2
-Circle,Wood Lane ,Shepherd's Bush Market ,2
-Circle,Shepherd's Bush Market ,Goldhawk Road ,1
-Circle,Goldhawk Road ,Hammersmith ,2
+Circle,Baker Street,Edgware Road,3
+,Paddington,Royal Oak,2
+Circle,Royal Oak,Westbourne Park,2
+Circle,Westbourne Park,Ladbroke Grove,2
+Circle,Ladbroke Grove,Latimer Road,2
+Circle,Latimer Road,Wood Lane,2
+Circle,Wood Lane,Shepherd's Bush Market,2
+Circle,Shepherd's Bush Market,Goldhawk Road,1
+Circle,Goldhawk Road,Hammersmith,2
 District,Upminster,,
 District,Upminster Bridge,,
 District,Hornchurch,,
@@ -270,7 +270,7 @@ District,Stamford Brook,,
 District,Turnham Green,,
 District,Gunnersbury,,
 District,Kew Gardens,,
-District,Richmond ,,
+District,Richmond,,
 District,Chiswick Park,,
 District,Acton Town,,
 District,Ealing Common,,
@@ -329,7 +329,7 @@ District,Ravenscourt Park,Stamford Brook,2
 District,Stamford Brook,Turnham Green,1
 District,Turnham Green,Gunnersbury,3
 District,Gunnersbury,Kew Gardens,2
-District,Kew Gardens,Richmond ,4
+District,Kew Gardens,Richmond,4
 District,Turnham Green,Chiswick Park,2
 District,Chiswick Park,Acton Town,2
 District,Acton Town,Ealing Common,2
@@ -563,7 +563,7 @@ Northern,Tooting Bec,,
 Northern,Tooting Broadway,,
 Northern,Colliers Wood,,
 Northern,South Wimbledon,,
-Northern,Morden ,,
+Northern,Morden,,
 Northern,High Barnet,Totteridge & Whetstone,4
 Northern,Totteridge & Whetstone,Woodside Park,2
 Northern,Woodside Park,West Finchley,2
@@ -614,7 +614,7 @@ Northern,Balham,Tooting Bec,2
 Northern,Tooting Bec,Tooting Broadway,2
 Northern,Tooting Broadway,Colliers Wood,2
 Northern,Colliers Wood,South Wimbledon,2
-Northern,South Wimbledon,Morden ,3
+Northern,South Wimbledon,Morden,3
 Piccadilly,Cockfosters,,
 Piccadilly,Oakwood,,
 Piccadilly,Southgate,,
