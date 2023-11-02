@@ -25,26 +25,15 @@ with open('LondonUnderground.csv', 'r') as f:
     for i in range(len(list_of_edges)):
         list_of_edges[i] = (list_of_edges[i][0],list_of_edges[i][1],int(list_of_edges[i][2]))
 
-    # def dup(lst):
-    #     l = []
-    #     s = set()
-    #     for i in lst:
-    #         if i not in l:
-    #             l.append(i)
-    #         else:
-    #             s.add(i)
-    #     return s
-    # print(len(dup(list(list_of_edges))))
-
-    # print(list_of_stops)
-    # print(list_of_edges)
-
     graph1 = AdjacencyListGraph(len(list_of_stops), False, True)
 
     for edge in list_of_edges:
         graph1.insert_edge(list_of_stops.index(edge[0]), list_of_stops.index(edge[1]), edge[2])
     d, pi = dijkstra(graph1, 0)
+    # for i in range(len(list_of_stops)):
+    #     print(list_of_stops[i] + ": d = " + str(d[i]) + ", pi = " + ("None" if pi[i] is None else list_of_stops[pi[i]]))
+    print(pi)
+    print(d)
+
     for i in range(len(list_of_stops)):
-        print(list_of_stops[i] + ": d = " + str(d[i]) + ", pi = " + ("None" if pi[i] is None else list_of_stops[pi[i]]))
-    print()
-    print(d, pi)
+        print(i, list_of_stops[i])
