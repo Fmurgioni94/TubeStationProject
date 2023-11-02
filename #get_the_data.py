@@ -97,43 +97,68 @@ for edge in edges:
     graph1.insert_edge(vertices[edge[0]], vertices[edge[1]],
                        edges[edge])
 
-# The users starting point
-start = validate_start(vertices)
-# The users ending point
-arrive = validate_arrive(vertices)
+# # The users starting point
+# start = validate_start(vertices)
+# # The users ending point
+# arrive = validate_arrive(vertices)
 
-# The index of the users starting point
-start_index = vertices[start]
-# The index of the users ending point
-arrive_index = vertices[arrive]
+# # The index of the users starting point
+# start_index = vertices[start]
+# # The index of the users ending point
+# arrive_index = vertices[arrive]
 
 
 # Implement Dijkstra Algorithm
-def dijkstra_algorithm():
+def dijkstra_algorithm(G):
     # Implementation on Dijkstra with the graph and the starting point (station)
-    d, pi = dijkstra(graph1, start_index)
+    d, pi = dijkstra(G, start_index)
 
     # Function to return the path with times between stations, total time and number of steps
     return retrieve_path(d, pi, arrive_index)
 
 
 # Implement Bellman Ford Algorithm
-def bellman_ford_algorithm():
-    d, pi, cycle = bellman_ford(graph1, start_index)
+def bellman_ford_algorithm(G):
+    d, pi, cycle = bellman_ford(G, start_index)
     retrieve_path(d, pi, arrive_index)
-    print("No negative-weight cycle:", cycle)
+    # print("No negative-weight cycle:", cycle)
 
 
 # Implement Kruskal Algorithm
-def kruskal_algorithm():
-    kruskal1 = kruskal(graph1)
-    print_undirected_edges(kruskal1, station_list)
-    kruskal_weight = get_total_weight(kruskal1)
-    print("Kruskal weight =", kruskal_weight)
+def kruskal_algorithm(G):
+    mst = kruskal(G)
+    stations_that_can_be_closed = []
+    
+    graph1_edge_list = graph1.get_edge_list()
+    for edge in graph1.get_edge_list():
+        if not edge in mst.get_edge_list():
+            stations_that_can_be_closed.append(edge)
+    
+    for e in stations_that_can_be_closed:
+        print(f"The link between {station_list[e[0]]} and {station_list[e[1]]} can be shut down")
+
 
 
 # Test results
-
-# dijkstra_algorithm()
-# bellman_ford_algorithm()
-# kruskal_algorithm()
+# space = "-" * 50
+# print()
+# print("Dijkstra's Algorithm")
+# print(space)
+# dijkstra_algorithm(graph1)
+# print()
+# print("Dijkstra's Algorithm after Kruskal's Algorithm")
+# print(space)
+# dijkstra_algorithm(kruskal(graph1))
+# print()
+# print("Bellman-Ford's Algorithm")
+# print(space)
+# bellman_ford_algorithm(graph1)
+# print()
+# print("Bellman-Ford's Algorithm after Kruskal's Algorithm")
+# print(space)
+# bellman_ford_algorithm(kruskal(graph1))
+# print()
+# print(space)
+# kruskal_algorithm(graph1)
+# print(space)
+# print()
