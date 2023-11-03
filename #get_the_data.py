@@ -48,6 +48,7 @@ vertices, edges = ReadFile.read_file()
 # Create the list of stations
 station_list = ReadFile.list_of_stations
 
+
 # Validating the users input for the starting point (station)
 def validate_start(list_of_stops):
     while True:
@@ -79,8 +80,10 @@ def retrieve_path(d, pi, arriving_index):
         counter += 1
 
     # return the path with times between stations
-    for step in path:
-        print(f"To the {station_list[step[0]]} station is going to take {step[1]} minutes.")
+    for step in path[::-1]:
+        print(
+            f"From {station_list[pi[step[0]]]} To the {station_list[step[0]]}"
+            f" station is going to take {step[1]} minutes.")
 
     # return the total time
     print(f"The trip will take in total {total} minutes.")
@@ -97,15 +100,15 @@ for edge in edges:
     graph1.insert_edge(vertices[edge[0]], vertices[edge[1]],
                        edges[edge])
 
-# # The users starting point
-# start = validate_start(vertices)
-# # The users ending point
-# arrive = validate_arrive(vertices)
+# The users starting point
+start = validate_start(vertices)
+# The users ending point
+arrive = validate_arrive(vertices)
 
-# # The index of the users starting point
-# start_index = vertices[start]
-# # The index of the users ending point
-# arrive_index = vertices[arrive]
+# The index of the users starting point
+start_index = vertices[start]
+# The index of the users ending point
+arrive_index = vertices[arrive]
 
 
 # Implement Dijkstra Algorithm
@@ -121,44 +124,45 @@ def dijkstra_algorithm(G):
 def bellman_ford_algorithm(G):
     d, pi, cycle = bellman_ford(G, start_index)
     retrieve_path(d, pi, arrive_index)
-    # print("No negative-weight cycle:", cycle)
+    print("No negative-weight cycle:", cycle)
 
 
 # Implement Kruskal Algorithm
 def kruskal_algorithm(G):
     mst = kruskal(G)
     stations_that_can_be_closed = []
-    
-    graph1_edge_list = graph1.get_edge_list()
-    for edge in graph1.get_edge_list():
-        if not edge in mst.get_edge_list():
-            stations_that_can_be_closed.append(edge)
-    
-    for e in stations_that_can_be_closed:
-        print(f"The link between {station_list[e[0]]} and {station_list[e[1]]} can be shut down")
 
+    for link in graph1.get_edge_list():
+        if link not in mst.get_edge_list():
+            stations_that_can_be_closed.append(link)
+
+    for e in stations_that_can_be_closed:
+        print(f"The link between '{station_list[e[0]]} -- {station_list[e[1]]}' can be shut down.")
+    print(f"\nThe number of edges: {len(graph1.get_edge_list())}")
+    print(f"The number for links you can close: {len(stations_that_can_be_closed)}")
+    print(f"The number of links still operating: {len(graph1.get_edge_list()) - len(stations_that_can_be_closed)}")
 
 
 # Test results
-# space = "-" * 50
-# print()
-# print("Dijkstra's Algorithm")
-# print(space)
-# dijkstra_algorithm(graph1)
-# print()
-# print("Dijkstra's Algorithm after Kruskal's Algorithm")
-# print(space)
-# dijkstra_algorithm(kruskal(graph1))
-# print()
-# print("Bellman-Ford's Algorithm")
-# print(space)
-# bellman_ford_algorithm(graph1)
-# print()
-# print("Bellman-Ford's Algorithm after Kruskal's Algorithm")
-# print(space)
-# bellman_ford_algorithm(kruskal(graph1))
-# print()
-# print(space)
-# kruskal_algorithm(graph1)
-# print(space)
-# print()
+space = "-" * 50
+print()
+print("Dijkstra's Algorithm")
+print(space)
+dijkstra_algorithm(graph1)
+print()
+print("Dijkstra's Algorithm after Kruskal's Algorithm")
+print(space)
+dijkstra_algorithm(kruskal(graph1))
+print()
+print("Bellman-Ford's Algorithm")
+print(space)
+bellman_ford_algorithm(graph1)
+print()
+print("Bellman-Ford's Algorithm after Kruskal's Algorithm")
+print(space)
+bellman_ford_algorithm(kruskal(graph1))
+print()
+print(space)
+kruskal_algorithm(graph1)
+print(space)
+print()
