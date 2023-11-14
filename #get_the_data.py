@@ -102,15 +102,16 @@ for edge in edges:
     graph1.insert_edge(vertices[edge[0]], vertices[edge[1]],
                        edges[edge])
 
-# The users starting point
-start = validate_start(vertices)
-# The users ending point
-arrive = validate_arrive(vertices)
 
-# The index of the users starting point
-start_index = vertices[start]
-# The index of the users ending point
-arrive_index = vertices[arrive]
+# # The users starting point
+# start = validate_start(vertices)
+# # The users ending point
+# arrive = validate_arrive(vertices)
+#
+# # The index of the users starting point
+# start_index = vertices[start]
+# # The index of the users ending point
+# arrive_index = vertices[arrive]
 
 
 # Implement Dijkstra Algorithm
@@ -129,12 +130,12 @@ def bellman_ford_algorithm(G):
     print(pi)
     retrieve_path(d, pi, arrive_index)
 
+
 def bfs_algo(G):
     d, pi = bfs(G, start_index)
     print(d)
     print(pi)
     retrieve_path(d, pi, arrive_index)
-
 
 
 # Implement Kruskal Algorithm
@@ -152,6 +153,7 @@ def kruskal_algorithm(G):
     print(f"The number for links you can close: {len(stations_that_can_be_closed)}")
     print(f"The number of links still operating: {len(graph1.get_edge_list()) - len(stations_that_can_be_closed)}")
 
+
 def test_run(func):
     def inner(*args):
         total_time = 0
@@ -166,7 +168,19 @@ def test_run(func):
 
     return inner
 
-test_run(dijkstra())
+
+from generate_random_graph import generate_random_graph
+
+test_batch = [10, 50, 100, 270]
+card_V = 1000
+graph2 = generate_random_graph(card_V, 0.3, True, False, True, 0, 15)
+
+
+@test_run
+def test():
+    return dijkstra(graph2, 4)
+
+test()
 
 # # Test results
 # space = "-" * 50
