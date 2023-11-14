@@ -1,6 +1,7 @@
 import unittest
 from reading_file import File
 
+
 class TestFileClass(unittest.TestCase):
     def test_read_file(self):
         # Create a File object
