@@ -123,12 +123,15 @@ def dijkstra_algorithm(G):
 
 # Implement Bellman Ford Algorithm
 def bellman_ford_algorithm(G):
-    d, pi = bellman_ford(G, start_index)
+    d, pi, circle = bellman_ford(G, start_index)
+    print(d)
+    print(pi)
     retrieve_path(d, pi, arrive_index)
 
-def bfs(G):
+def bfs_algo(G):
     d, pi = bfs(G, start_index)
-    print(d,pi)
+    print(d)
+    print(pi)
     retrieve_path(d, pi, arrive_index)
 
 
@@ -165,6 +168,10 @@ print()
 print("Bellman-Ford's Algorithm")
 print(space)
 bellman_ford_algorithm(graph1)
+print()
+print("Bfs")
+print(space)
+bfs_algo(graph1)
 print()
 print("Bellman-Ford's Algorithm after Kruskal's Algorithm")
 print(space)

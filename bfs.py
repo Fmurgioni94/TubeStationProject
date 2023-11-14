@@ -98,6 +98,7 @@ if __name__ == "__main__":
 	print(graph2.strmap(lambda i: vertices[i]))
 	s = vertices.index('s')
 	dist, predecessor = bfs(graph2, s)  # BFS from s
-	for i in range(card_V):
-		print(vertices[i] + ": dist = " + str(dist[i]) + ", path = " + \
-				str(print_path(predecessor, s, i, lambda i: vertices[i])))
+	print(dist,predecessor)
+	# for i in range(card_V):
+	# 	print(vertices[i] + ": dist = " + str(dist[i]) + ", path = " + \
+	# 			str(print_path(predecessor, s, i, lambda i: vertices[i])))
