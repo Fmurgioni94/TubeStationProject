@@ -41,6 +41,7 @@ from reading_file import File
 from bellman_ford import bellman_ford
 from mst import kruskal, print_undirected_edges, get_total_weight
 from bfs import bfs
+import time
 
 # Create an instance of the class
 ReadFile = File()
@@ -151,33 +152,46 @@ def kruskal_algorithm(G):
     print(f"The number for links you can close: {len(stations_that_can_be_closed)}")
     print(f"The number of links still operating: {len(graph1.get_edge_list()) - len(stations_that_can_be_closed)}")
 
+def test_run(func):
+    def inner(*args):
+        total_time = 0
+        for j in range(3):
+            start = time.time()
+            func(*args)
+            end = time.time()
+            time_elapsed = end - start
+            total_time += time_elapsed
+            print("Run", j + 1, "elapsed time:", time_elapsed)
+        print("Average elapsed time:", total_time / 3)
 
+    return inner
 
+test_run(dijkstra())
 
-# Test results
-space = "-" * 50
-print()
-print("Dijkstra's Algorithm")
-print(space)
-dijkstra_algorithm(graph1)
-print()
-print("Dijkstra's Algorithm after Kruskal's Algorithm")
-print(space)
-dijkstra_algorithm(kruskal(graph1))
-print()
-print("Bellman-Ford's Algorithm")
-print(space)
-bellman_ford_algorithm(graph1)
-print()
-print("Bfs")
-print(space)
-bfs_algo(graph1)
-print()
-print("Bellman-Ford's Algorithm after Kruskal's Algorithm")
-print(space)
-bellman_ford_algorithm(kruskal(graph1))
-print()
-print(space)
-kruskal_algorithm(graph1)
-print(space)
-print()
+# # Test results
+# space = "-" * 50
+# print()
+# print("Dijkstra's Algorithm")
+# print(space)
+# dijkstra_algorithm(graph1)
+# print()
+# print("Dijkstra's Algorithm after Kruskal's Algorithm")
+# print(space)
+# dijkstra_algorithm(kruskal(graph1))
+# print()
+# print("Bellman-Ford's Algorithm")
+# print(space)
+# bellman_ford_algorithm(graph1)
+# print()
+# print("Bfs")
+# print(space)
+# bfs_algo(graph1)
+# print()
+# print("Bellman-Ford's Algorithm after Kruskal's Algorithm")
+# print(space)
+# bellman_ford_algorithm(kruskal(graph1))
+# print()
+# print(space)
+# kruskal_algorithm(graph1)
+# print(space)
+# print()
