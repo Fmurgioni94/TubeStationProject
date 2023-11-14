@@ -40,7 +40,7 @@ import matplotlib.pyplot as plt
 from reading_file import File
 from bellman_ford import bellman_ford
 from mst import kruskal, print_undirected_edges, get_total_weight
-from bfs import
+from bfs import bfs
 
 # Create an instance of the class
 ReadFile = File()
@@ -123,11 +123,14 @@ def dijkstra_algorithm(G):
 
 # Implement Bellman Ford Algorithm
 def bellman_ford_algorithm(G):
-    d, pi, cycle = bellman_ford(G, start_index)
+    d, pi = bellman_ford(G, start_index)
     retrieve_path(d, pi, arrive_index)
-    print("No negative-weight cycle:", cycle)
 
-def
+def bfs(G):
+    d, pi = bfs(G, start_index)
+    print(d,pi)
+    retrieve_path(d, pi, arrive_index)
+
 
 
 # Implement Kruskal Algorithm
