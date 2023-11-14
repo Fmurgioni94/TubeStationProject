@@ -40,6 +40,7 @@ import matplotlib.pyplot as plt
 from reading_file import File
 from bellman_ford import bellman_ford
 from mst import kruskal, print_undirected_edges, get_total_weight
+from bfs import
 
 # Create an instance of the class
 ReadFile = File()
@@ -126,6 +127,8 @@ def bellman_ford_algorithm(G):
     retrieve_path(d, pi, arrive_index)
     print("No negative-weight cycle:", cycle)
 
+def
+
 
 # Implement Kruskal Algorithm
 def kruskal_algorithm(G):
@@ -141,6 +144,8 @@ def kruskal_algorithm(G):
     print(f"\nThe number of edges: {len(graph1.get_edge_list())}")
     print(f"The number for links you can close: {len(stations_that_can_be_closed)}")
     print(f"The number of links still operating: {len(graph1.get_edge_list()) - len(stations_that_can_be_closed)}")
+
+
 
 
 # Test results
