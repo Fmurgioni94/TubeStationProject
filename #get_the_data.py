@@ -41,6 +41,7 @@ from reading_file import File
 from bellman_ford import bellman_ford
 from mst import kruskal, print_undirected_edges, get_total_weight
 from bfs import bfs
+from generate_random_graph import generate_random_graph
 import time
 
 # Create an instance of the class
@@ -165,22 +166,30 @@ def test_run(func):
             total_time += time_elapsed
             print("Run", j + 1, "elapsed time:", time_elapsed)
         print("Average elapsed time:", total_time / 3)
+        print()
 
     return inner
 
 
-from generate_random_graph import generate_random_graph
-
-test_batch = [10, 50, 100, 270]
-card_V = 1000
-graph2 = generate_random_graph(card_V, 0.3, True, False, True, 0, 15)
+card_V = 50
+edge_probability = 0.2
+min_w = 0
+max_w = 15
+graph2 = generate_random_graph(card_V, edge_probability, True, False, True, min_w, max_w)
 
 
 @test_run
-def test():
+def test_d():
     return dijkstra(graph2, 4)
 
-test()
+
+@test_run
+def test_b():
+    return bfs(graph2, 4)
+
+
+test_d()
+test_b()
 
 # # Test results
 # space = "-" * 50
