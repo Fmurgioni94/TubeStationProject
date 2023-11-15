@@ -155,41 +155,66 @@ def kruskal_algorithm(G):
     print(f"The number of links still operating: {len(graph1.get_edge_list()) - len(stations_that_can_be_closed)}")
 
 
-def test_run(func):
-    def inner(*args):
-        total_time = 0
-        for j in range(3):
-            start = time.time()
-            func(*args)
-            end = time.time()
-            time_elapsed = end - start
-            total_time += time_elapsed
-            print("Run", j + 1, "elapsed time:", time_elapsed)
-        print("Average elapsed time:", total_time / 3)
-        print()
+# def test_run(func):
+#     def inner(*args):
+#         total_time = 0
+#         for j in range(3):
+#             start = time.time()
+#             func(*args)
+#             end = time.time()
+#             time_elapsed = end - start
+#             total_time += time_elapsed
+#             print("Run", j + 1, "elapsed time:", time_elapsed)
+#         return "Average elapsed time:", total_time / 3
+#
+#     return inner
 
-    return inner
+def average_execution_time(func, graph, start):
+    total_time = 0
 
+    for _ in range(3):
+        start_time = time.time()
+        func(graph, start)
+        end_time = time.time()
+        total_time += end_time - start_time
 
-card_V = 50
-edge_probability = 0.2
-min_w = 0
-max_w = 15
-graph2 = generate_random_graph(card_V, edge_probability, True, False, True, min_w, max_w)
-
-
-@test_run
-def test_d():
-    return dijkstra(graph2, 4)
-
-
-@test_run
-def test_b():
-    return bfs(graph2, 4)
+    average_time = total_time / 3
+    return average_time
 
 
-test_d()
-test_b()
+# Test the average_execution_time function
+
+
+inputs = [100, 500, 2500]
+res_d = []
+res_b = []
+
+# @test_run
+# def test_d():
+#     res_d.append(dijkstra(graph2, 4))
+#
+#
+# @test_run
+# def test_b():
+#     res_b.append(bfs(graph2, 4))
+
+
+
+import random
+
+edge_list = [0.1, 0.35, 0.8]
+for j in edge_list:
+    for i in inputs:
+        val = random.randint(1, i)
+        card_V = i
+        min_w = 0
+        max_w = 15
+        graph2 = generate_random_graph(card_V, j, True, False, True, min_w, max_w)
+        res_d.append(average_execution_time(dijkstra, graph2, val))
+        res_b.append(average_execution_time(bfs, graph2, val))
+
+print(res_d)
+print(res_b)
 
 # # Test results
 # space = "-" * 50
