@@ -185,7 +185,7 @@ def average_execution_time(func, graph, start):
 # Test the average_execution_time function
 
 
-inputs = [100, 500, 2500]
+inputs = [100, 500, 1000, 1500, 2000, 2500, 3000, 3500]
 res_d = []
 res_b = []
 
@@ -199,19 +199,18 @@ res_b = []
 #     res_b.append(bfs(graph2, 4))
 
 
-
 import random
 
-edge_list = [0.1, 0.35, 0.8]
-for j in edge_list:
-    for i in inputs:
-        val = random.randint(1, i)
-        card_V = i
-        min_w = 0
-        max_w = 15
-        graph2 = generate_random_graph(card_V, j, True, False, True, min_w, max_w)
-        res_d.append(average_execution_time(dijkstra, graph2, val))
-        res_b.append(average_execution_time(bfs, graph2, val))
+# edge_list = [0.1, 0.35, 0.8]
+# for j in edge_list:
+for i in inputs:
+    val = random.randint(1, i)
+    card_V = i
+    min_w = 0
+    max_w = 15
+    graph2 = generate_random_graph(card_V, 1, True, False, True, min_w, max_w)
+    res_d.append(average_execution_time(dijkstra, graph2, val))
+    res_b.append(average_execution_time(bfs, graph2, val))
 
 print(res_d)
 print(res_b)
