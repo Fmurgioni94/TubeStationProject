@@ -57,6 +57,14 @@ class File:
     @property
     def list_of_stations(self):
         return self.__list_of_stations
+    
+    @property
+    def vertices(self):
+        return self.__vertices
+    
+    @property
+    def edges(self):
+        return self.__edges
 
     def read_file(self):
         """

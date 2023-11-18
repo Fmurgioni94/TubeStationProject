@@ -77,17 +77,34 @@ if __name__ == "__main__":
 	from bellman_ford import bellman_ford
 	from generate_random_graph import generate_random_graph
 
-	# Textbook example. 
-	vertices = ['s', 't', 'x', 'y', 'z']
-	edges = [('s', 't', 10), ('s', 'y', 5), ('t', 'x', 1), ('t', 'y', 2), ('x', 'z', 4),
-			('y', 't', 3), ('y', 'x', 9), ('y', 'z', 2), ('z', 's', 7), ('z', 'x', 6)]
+	# Textbook example.
+	# TODO: change this as it was before 
+	vertices = ["A", "B", "C", "D", "E"]#['s', 't', 'x', 'y', 'z']
+	edges = [("A", "B", 1), ("B", "C", 1), ("C", "D", 1), ("A", "D", 1), ("A", "E", 1), ("E", "D", 1)] #[('s', 't', 10), ('s', 'y', 5), ('t', 'x', 1), ('t', 'y', 2), ('x', 'z', 4),
+#('y', 't', 3), ('y', 'x', 9), ('y', 'z', 2), ('z', 's', 7), ('z', 'x', 6)]
 	graph1 = AdjacencyListGraph(len(vertices), True, True)
 	for edge in edges:
 		graph1.insert_edge(vertices.index(edge[0]), vertices.index(edge[1]), edge[2])
-	d, pi = dijkstra(graph1, vertices.index('t'))
+	d, pi = dijkstra(graph1, vertices.index('A'))
 	for i in range(len(vertices)):
 		print(vertices[i] + ": d = " + str(d[i]) + ", pi = " + ("None" if pi[i] is None else vertices[pi[i]]))
 	print()
+	# TODO: delete this part!
+	path = []
+	counter = 0
+	arriving_index = 3
+	while pi[arriving_index] != None:
+		path.append(arriving_index)
+		arriving_index = pi[arriving_index]
+		counter += 1
+	for step in path[::-1]:
+		print(
+			f"From {vertices[pi[step]]} To the {vertices[step]}"
+		)
+	print()
+	print(f"The best path has {counter} steps.")
+
+	# until here -----------------------------------------------------------------------!
 
 	# Larger example with all single-source shortest paths.
 	card_V = 100
