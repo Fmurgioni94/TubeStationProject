@@ -154,7 +154,6 @@ if __name__ == "__main__":
 
 	# Directed.
 	array1 = np.random.randint(10, size=20)
-	print(array1)
 	graph1 = AdjacencyMatrixGraph(10)
 	for i in range(0, len(array1) - 1, 2):
 		try:
@@ -166,6 +165,7 @@ if __name__ == "__main__":
 
 	# Test get_edge_list.
 	print(graph1.get_edge_list())
+
 	# Undirected.
 	graph2 = AdjacencyMatrixGraph(10, directed=False)
 	for i in range(0, len(array1) - 1, 2):

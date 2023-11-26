@@ -167,40 +167,56 @@ if __name__ == "__main__":
     from generate_random_graph import generate_random_graph
 
     # Example from book.
-    vertices = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i']
-    edges = [('a', 'b', 4), ('a', 'h', 8), ('b', 'c', 8), ('b', 'h', 11), ('c', 'd', 7),
-             ('c', 'f', 4), ('c', 'i', 2), ('d', 'e', 9), ('d', 'f', 14), ('e', 'f', 10),
-             ('f', 'g', 2), ('g', 'h', 1), ('g', 'i', 6), ('h', 'i', 7)]
+    # vertices = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i']
+    # edges = [('a', 'b', 4), ('a', 'h', 8), ('b', 'c', 8), ('b', 'h', 11), ('c', 'd', 7),
+    #          ('c', 'f', 4), ('c', 'i', 2), ('d', 'e', 9), ('d', 'f', 14), ('e', 'f', 10),
+    #          ('f', 'g', 2), ('g', 'h', 1), ('g', 'i', 6), ('h', 'i', 7)]
+    vertices = ["A","B","C","D","E","F"]
+    # edges = [("A", "B", 3), ("A", "C", 1), ("A", "D", 7), ("B", "C", 2),("B", "D", 4), ("D", "E", 5), ("E", "F", 3)]
+
+    edges = [("A", "F", 2), ("A", "B", 3), ("A", "C", 1), ("B", "F", 3), ("B", "D", 4), ("B", "E", 3), ("C", "D", 5), ("D", "E", 2)]
     graph1 = AdjacencyListGraph(len(vertices), False, True)
     for edge in edges:
         graph1.insert_edge(vertices.index(edge[0]), vertices.index(edge[1]), edge[2])
-    print(graph1.strmap(lambda i: vertices[i]))
-    print("MST with Kruskal's algorithm:")
-    kruskal1 = kruskal(graph1)
-    print_undirected_edges(kruskal1, vertices)
-    kruskal_weight = get_total_weight(kruskal1)
-    print("Kruskal weight =", kruskal_weight)
-    print("MST with Prim's algorithm:")
-    prim1 = prim(graph1, 0)
-    print_undirected_edges(prim1, vertices)
-    prim_weight = get_total_weight(prim1)
-    print("Prim weight =", prim_weight)
-    print(prim_weight == kruskal_weight)
-    print()
+    # print(graph1.strmap(lambda i: vertices[i]))
+    # print("MST with Kruskal's algorithm:")
+    # kruskal1 = kruskal(graph1)
+    # print_undirected_edges(kruskal1, vertices)
+    # kruskal_weight = get_total_weight(kruskal1)
+    # print("Kruskal weight =", kruskal_weight)
+    # print("MST with Prim's algorithm:")
+    # prim1 = prim(graph1, 0)
+    # print_undirected_edges(prim1, vertices)
+    # prim_weight = get_total_weight(prim1)
+    # print("Prim weight =", prim_weight)
+    # print(prim_weight == kruskal_weight)
+    # print()
 
+    stations_that_can_be_closed = []
+    mst = kruskal(graph1)
+
+    for edge in graph1.get_edge_list():
+        if edge not in mst.get_edge_list():
+            stations_that_can_be_closed.append(edge)
+    for e in stations_that_can_be_closed:
+        print(f"The link between '{vertices[e[0]]} -- {vertices[e[1]]}' can be shut down.")
+        # print(f"\nThe number of edges: {len(graph1.get_edge_list())}")
+        # print(f"The number for links you can close: {len(stations_that_can_be_closed)}")
+        # print(f"The number of links still operating: {len(graph1.get_edge_list()) - len(stations_that_can_be_closed)}")
+    
     # Larger example.
-    card_V = 50
-    vertices = list(range(card_V))
-    graph2 = generate_random_graph(card_V, 0.15, True, False, True, 2, 15)
-    print(graph2)
-    print("MST with Kruskal's algorithm:")
-    kruskal2 = kruskal(graph2)
-    print_undirected_edges(kruskal2, vertices)
-    kruskal_weight2 = get_total_weight(kruskal2)
-    print("Kruskal weight =", kruskal_weight2)
-    print("MST with Prim's algorithm:")
-    prim2 = prim(graph2, 0)
-    print_undirected_edges(prim2, vertices)
-    prim_weight2 = get_total_weight(prim2)
-    print("Prim weight =", prim_weight2)
-    print(prim_weight2 == kruskal_weight2)
+    # card_V = 50
+    # vertices = list(range(card_V))
+    # graph2 = generate_random_graph(card_V, 0.15, True, False, True, 2, 15)
+    # print(graph2)
+    # print("MST with Kruskal's algorithm:")
+    # kruskal2 = kruskal(graph2)
+    # print_undirected_edges(kruskal2, vertices)
+    # kruskal_weight2 = get_total_weight(kruskal2)
+    # print("Kruskal weight =", kruskal_weight2)
+    # print("MST with Prim's algorithm:")
+    # prim2 = prim(graph2, 0)
+    # print_undirected_edges(prim2, vertices)
+    # prim_weight2 = get_total_weight(prim2)
+    # print("Prim weight =", prim_weight2)
+    # print(prim_weight2 == kruskal_weight2)
